@@ -4,5 +4,6 @@ urlpatterns = [
   url(r'^$', views.index),
   url(r'^surveys$', views.index),
   url(r'^surveys/process$', views.process),
-  url(r'^surveys/result$', views.result)
+  url(r'^surveys/result$', views.result),
+  url(r'^surveys/reset', views.reset)
 ]

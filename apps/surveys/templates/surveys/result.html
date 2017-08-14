@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'surveys/css/style.css' %}"> 
+    <title>Result Page</title>
+</head>
+<body>
+    <h2>Thanks for submitting this form! You have submitted this form times {{ request.session.counter }} now!</h2>
+    <div class="result">
+        <h2 class="heading">Submitted Info</h2>
+        <h4>Name: </h4>
+        <p>{{request.session.name}}</p>
+        <h4>Dojo Location: </h4>
+        <p>{{request.session.location}}</p>
+        <h4>Favorite Language: </h4>
+        <p>{{request.session.language}}</p>
+        <h4>Comment: </h4>
+        <p>{{request.session.comment}}</p>
+
+        <!-- Not sure if having multiple forms for buttons a good idea! -->
+        <form action="/surveys" method="post">
+            {% csrf_token %}
+            <input type="submit" value="Go back">
+        </form>
+        <form action="/surveys/reset" method="post">
+            {% csrf_token %}
+            <input type="submit" value="Reset Counter">
+        </form>
+    </div>
+</body>
+</html>

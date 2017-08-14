@@ -10,25 +10,26 @@
 </head>
 <body>
     <h1>Fill in the survey!</h1>
-    <form action="/result" method="post">
+    <form class="survey-form" action="/surveys/process" method="post">
+        {% csrf_token %}
         <label>Your Name:</label>
-        <input type="text" name="name_key">
+        <input type="text" name="name">
         <label>Dojo Location:</label>
-        <select name="location_key">
+        <select name="location">
             <option value="San Jose">San Jose</option>
             <option value="Seattle">Seattle</option>
             <option value="Burbank">Burbank</option>
             <option value="Tulsa">Tulsa</option>
         </select>
         <label>Favorite Language:</label>
-        <select name="language_key">
+        <select name="language">
             <option value="JavaScript">JavaScript</option>
             <option value="Python">Python</option>
             <option value="Swift">Swift</option>
             <option value="AngularJS">AngularJS</option>
         </select>
         <label>Comment (optional):</label>
-        <textarea name="comment_key" cols="30" rows="10"></textarea>
+        <textarea name="comment" cols="30" rows="10"></textarea>
         <input type="submit" name="submit" value="Submit">
     </form>
 </body>
