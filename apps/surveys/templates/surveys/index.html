@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'surveys/css/style.css' %}">
+    <title>Survey</title>
+</head>
+<body>
+    <h1>Fill in the survey!</h1>
+    <form action="/result" method="post">
+        <label>Your Name:</label>
+        <input type="text" name="name_key">
+        <label>Dojo Location:</label>
+        <select name="location_key">
+            <option value="San Jose">San Jose</option>
+            <option value="Seattle">Seattle</option>
+            <option value="Burbank">Burbank</option>
+            <option value="Tulsa">Tulsa</option>
+        </select>
+        <label>Favorite Language:</label>
+        <select name="language_key">
+            <option value="JavaScript">JavaScript</option>
+            <option value="Python">Python</option>
+            <option value="Swift">Swift</option>
+            <option value="AngularJS">AngularJS</option>
+        </select>
+        <label>Comment (optional):</label>
+        <textarea name="comment_key" cols="30" rows="10"></textarea>
+        <input type="submit" name="submit" value="Submit">
+    </form>
+</body>
+</html>
